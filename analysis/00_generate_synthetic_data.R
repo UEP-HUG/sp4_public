@@ -22,7 +22,7 @@ p_inf_2022 <- .6    # probability of having a positive test in 2022
 sens_s <- .97
 spec_s <- .98
 sens_n <- .9
-spec_s <- .98
+spec_n <- .98
 
 set.seed(123)
 
@@ -85,7 +85,7 @@ sero_data <- true_pop %>%
                            (1-spec_s) * !(infected | vaccinated)),
                       "pos", "neg"),
     N_interp = ifelse(runif(1) < 
-                        (sens_s * infected + (1-spec_s) * !infected),
+                        (sens_n * infected + (1-spec_n) * !infected),
                       "pos", "neg")
   ) %>% 
   ungroup() %>% 
