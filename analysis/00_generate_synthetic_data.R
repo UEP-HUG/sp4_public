@@ -26,6 +26,9 @@ spec_n <- .98
 
 set.seed(123)
 
+if (!dir.exists(here::here("data", "processed")))
+  dir.create(here::here("data", "processed"))
+
 # Generate true states ----------------------------------------------------
 
 true_pop <- map_df(1:N, function(x) {
@@ -72,7 +75,7 @@ true_pop <- true_pop %>%
                       right = FALSE, include.lowest = TRUE) %>% factor()
   )
 
-saveRDS(true_pop, here::here("generated_data", "synthetic_true_sample.rds"))
+saveRDS(true_pop, here::here("data", "processed", "synthetic_true_sample.rds"))
 
 # Generate serological data -----------------------------------------------
 
@@ -89,9 +92,10 @@ sero_data <- true_pop %>%
                       "pos", "neg")
   ) %>% 
   ungroup() %>% 
-  select(uid, hh_id, sex, contains("age_cat"), S_interp, N_interp, inf_latest, vacc_status_3way)
+  mutate(vaccinated = vacc_status_3way != "unvaccinated") %>% 
+  select(uid, hh_id, sex, contains("age"), S_interp, N_interp, vaccinated)
 
-saveRDS(sero_data, here::here("generated_data", "synthetic_sero_sample.rds"))
+write_csv(sero_data, here::here("data", "processed", "synthetic_sero_sample.csv"))
 
 # Generate neutralization data --------------------------------------------
 
@@ -114,6 +118,6 @@ neut_data <- true_pop %>%
                     variant = .))
   }) %>% 
   ungroup() %>% 
-  select(uid, sex, contains("age_cat"), ec50, inf_latest, vacc_status_3way)
+  select(uid, sex, contains("age"), variant, ec50, inf_latest, vacc_status_3way)
 
-saveRDS(neut_data, here::here("generated_data", "synthetic_neut_sample.rds"))
+write_csv(neut_data, here::here("data", "processed", "synthetic_neut_sample.csv"))
