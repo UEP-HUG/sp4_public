@@ -172,7 +172,7 @@ saveRDS(
 
 # Calculated GE vacc status data by age  
 # !!NB: This would need to be modified for other settings
-vacc_status_by_age = tibble::tribble(
+vacc_status_by_age <- tibble::tribble(
   ~age_cat_UEP,  ~vacc_status_3way,  ~pop_total, ~strata_total, ~percentage,
   "[0,6)",          "Boosted",     31849.8,             0,           0,
   "[6,12)",          "Boosted", 32144.57143,             0,           0,
