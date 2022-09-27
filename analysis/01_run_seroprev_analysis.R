@@ -158,13 +158,13 @@ if (!dir.exists("output"))
 if (!dir.exists("output/results")) 
   dir.create("output/results")
 
-output_result_list_filename = paste0(
-  "~/",
-  session_ID,
-  "_results-list_",
-  format(Sys.time(), "%Y-%m-%d-%H-%M-%S"),
-  ".rds"
-)
+output_result_list_filename  <- here::here(
+  "data", "processed", paste0(
+    session_ID,
+    "_results-list_",
+    format(Sys.time(), "%Y-%m-%d-%H-%M-%S"),
+    ".rds"
+  ))
 
 # Define regression model -------------------------------------------------
 
@@ -284,13 +284,13 @@ all_results_list_GE_vacc <- c(
   subset_estimates_any_GE_vacc = list(subset_estimates_any_GE_vacc)
 )
 
-output_result_list_filename_GE_vacc <- paste0(
-  "~/",
-  session_ID,
-  "_results-list_GE_vacc_",
-  format(Sys.time(), "%Y-%m-%d-%H-%M-%S"),
-  ".rds"
-)
+output_result_list_filename_GE_vacc <- here::here(
+  "data", "processed", paste0(
+    session_ID,
+    "_results-list_GE_vacc_",
+    format(Sys.time(), "%Y-%m-%d-%H-%M-%S"),
+    ".rds"
+  ))
 
 saveRDS(all_results_list_GE_vacc, output_result_list_filename_GE_vacc)
 
