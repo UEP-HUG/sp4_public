@@ -127,7 +127,8 @@ population_data <- getGE_age_cats(age_cuts) %>%
 # Geneva population vaccination data -------------------------------------------
 # !!NB: These fractions are based on the Geneva state's statistics. Vaccination 
 # fractions would need to be adapted for other settings.
-# Repeat for each age class.
+# Here we repeat each age group as we don't have more detailed age data by sex
+# length of this vector should be num age classes * num sex categories
 GE_vacc <- rep(c(0.0217, 0.0486, 0.5113, 0.6845, 0.7559, 0.8052, 0.8587, 0.8915, 0.9383), 2)
 
 # Save data for later use -------------------------------------------------

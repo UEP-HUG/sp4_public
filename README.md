@@ -29,7 +29,7 @@ To run the analysis pipeline with your own data:
 1. Prepare serological and neutralization datasets in the same format as outputted by `00_generate_synthetic_data.R`
 2. Modify inputs for seroprevalence estimation:
 - Modify function `getGE_age_cats` in `analysis/functions_Stan_multinomial.R` to read in population counts by age and sex in your target population.
-- Modify variable `GE_vacc` in `analysis/01_run_seroprev_analysis.R` with vaccination coverage by age category in your target population.
+- Modify variable `GE_vacc` in `analysis/01_run_seroprev_analysis.R` with vaccination coverage by age (and sex if available) category in your target population.
 3. Modify inputs for neutralization analysis in `analysis/02_prep_neutralization_data.R`:
 - Modify probabilities of non-Omicron infection (before 2022) by age category in variable `prior_other_infection` to your target population
 - Modify dataframe `vacc_status_by_age` to population counts by vaccination status and age in your target population.
