@@ -92,7 +92,7 @@ sero_data <- true_pop %>%
                       "pos", "neg")
   ) %>% 
   ungroup() %>% 
-  mutate(vaccinated = vacc_status_3way != "unvaccinated") %>% 
+  mutate(vaccinated = vacc_status_3way != "No vacc") %>%
   select(uid, hh_id, sex, contains("age"), S_interp, N_interp, vaccinated)
 
 write_csv(sero_data, here::here("data", "processed", "synthetic_sero_sample.csv"))
