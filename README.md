@@ -2,7 +2,7 @@
 
 This is a repository containing code used in the analysis used in the manuscript:
 
-Zaballa, M.E., Perez-Saez, J., de Mestral, C., Pullen, N., Lamour, J., Turelli, P., Raclot, C., Baysson, H., Pennacchio, F., Villers, J. Duc, J., Richard V., Dumont R., Semaani C., Jutta A. Loizeau, Graindorge C., Lorthe E., Balavoine J-F, Pittet D., Schibler M., Vuilleumier N., Chappuis F., Kherad O.,ORCID Azman A.S., Posfay-Barbe K.M., Kaiser L., Trono D., Stringhini S., Guessous S. for the Specchio-COVID19 study group 2022. *Seroprevalence of anti-SARS-CoV-2 antibodies and cross-variant neutralization capacity after the Omicron BA. 2 wave in Geneva, Switzerland*. medRxiv.  https://doi.org/10.1101/2022.07.27.22278126 
+Zaballa, M.E., Perez-Saez, J., de Mestral, C., Pullen, N., Lamour, J., Turelli, P., Raclot, C., Baysson, H., Pennacchio, F., Villers, J. Duc, J., Richard V., Dumont R., Semaani C., Jutta A. Loizeau, Graindorge C., Lorthe E., Balavoine J-F, Pittet D., Schibler M., Vuilleumier N., Chappuis F., Kherad O.,ORCID Azman A.S., Posfay-Barbe K.M., Kaiser L., Trono D., Stringhini S., Guessous S. for the Specchio-COVID19 study group 2022. *Seroprevalence of anti-SARS-CoV-2 antibodies and cross-variant neutralization capacity after the Omicron BA.2 wave in Geneva, Switzerland*. medRxiv.  https://doi.org/10.1101/2022.07.27.22278126 
 
 ## Repository structure
 
@@ -12,15 +12,15 @@ Zaballa, M.E., Perez-Saez, J., de Mestral, C., Pullen, N., Lamour, J., Turelli, 
 - `02_prep_neutralization_data.R` prepares neutralization data for analysis and post-stratification
 - `03_run_neutralization_model.R` runs the regression model on neutralization capacity
 - `04_run_neutralization_poststratification.R` produces post-stratified estimates of neutralization capacity in the population.
-- The data folder contains demographic data of the state of Geneva used in the analysis
+- The data folder contains demographic data of the canton of Geneva used in the analysis
 
 ## Running with synthetic data
 
 The analysis pipeline can be tested using a synthetic dataset. To do so:
 
 1. Run `analysis/00_generate_synthetic_data.R` to generate the data.
-2. Run analysis steps 1 to 3. 
-3. Run analysis step 4 passing the population strata and seroprevalence estimate file names as produced in steps 1 and 3. 
+2. Run analysis files 01 to 03.
+3. Run analysis file 04 passing the population strata and seroprevalence estimate file names as produced in step 2.
 
 ## Running with your own data
 
